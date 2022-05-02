@@ -1,0 +1,22 @@
+dn: ou=users,dc=example,dc=org
+objectclass: organizationalUnit
+objectclass: top
+ou: users
+
+dn: uid=kresnasatya,ou=users,dc=example,dc=org
+uid: kresnasatya
+objectClass: inetOrgPerson
+givenName: Putu Satya Kresna Adi Pratama
+sn: Satya
+cn: Kresna
+mail: kresnasatya@test.com
+userPassword: kresnasatya123
+
+dn: uid=kresnayogiswara,ou=users,dc=example,dc=org
+uid: kresnayogiswara
+objectClass: inetOrgPerson
+givenName: Kresna Yogiswara
+sn: Yogiswara
+cn: Kresna
+mail: kresnayogiswara@test.com
+userPassword: kresnayogiswara123
