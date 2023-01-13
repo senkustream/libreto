@@ -29,7 +29,7 @@ services:
     container_name: sso-keycloak
     restart: unless-stopped
     tty: true
-    command: ["start-dev", "--http-port", "8180", "--http-relative-path", "/auth"]
+    command: ["start-dev", "--http-port", "8180"]
     image: quay.io/keycloak/keycloak:latest
     ports:
       - 8180:8180
