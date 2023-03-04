@@ -1,15 +1,6 @@
 version: "3.7"
 
 services:
-  openldap:
-    container_name: sso-openldap
-    restart: unless-stopped
-    tty: true
-    image: osixia/openldap:latest
-    ports:
-      - 10389:389
-    networks:
-      - sso-simulation-network
   postgres:
     container_name: sso-postgres
     restart: unless-stopped
