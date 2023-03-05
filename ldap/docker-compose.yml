@@ -11,8 +11,7 @@ services:
       - LDAP_ROOT=dc=unud,dc=ac,dc=id
       - LDAP_ADMIN_USERNAME=admin
       - LDAP_ADMIN_PASSWORD=adminpassword
-      - LDAP_ADD_SCHEMAS=yes
-      - LDAP_EXTRA_SCHEMAS="cosine,inetorgperson,nis,unudperson"
+      - LDAP_EXTRA_SCHEMAS=cosine,inetorgperson,nis,unudperson
     volumes:
       - openldap_data:/bitnami/openldap
       - ./tmp:/tmp/bitnami
