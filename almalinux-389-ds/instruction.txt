@@ -4,7 +4,7 @@ docker build -t kresnasatya/almalinux-389ds:1.0 .
 
 2. Run container command below.
 
-docker run -itd -p 9090:9090/tcp -p 389:389/tcp -p 636:636/tcp --name=almalinux9-389-ds --privileged=true kresnasatya/almalinux-389ds:1.0 /usr/sbin/init
+docker run -itd -p 9090:9090/tcp -p 389:389/tcp -p 636:636/tcp --name=almalinux9-389-ds --privileged kresnasatya/almalinux-389ds:1.0 /usr/sbin/init
 
 3. Open terminal then run command below.
 
