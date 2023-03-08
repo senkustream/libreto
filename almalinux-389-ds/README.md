@@ -1,13 +1,13 @@
 1. Run command below to build image.
 
    ```sh
-   docker build -t kresnasatya/almalinux9-389-ds:1.0 .
+   docker build -t kresnasatya/almalinux-389-ds:1.0 .
    ```
 
 2. Run container command below.
 
    ```sh
-   docker run -itd -p 9090:9090/tcp -p 389:389/tcp -p 636:636/tcp --name=almalinux9-389-ds --privileged kresnasatya/almalinux9-389-ds:1.0:1.0 /usr/sbin/init
+   docker run -itd -p 9090:9090/tcp -p 389:389/tcp -p 636:636/tcp --name=almalinux-389-ds --privileged kresnasatya/almalinux-389-ds:1.0 /usr/sbin/init
    ```
 
 3. Open terminal in container (step 2) then run command below.
