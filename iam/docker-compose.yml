@@ -7,7 +7,7 @@ services:
     tty: true
     image: postgres
     ports:
-      - 5444:5432
+      - 5445:5432
     environment:
       - POSTGRES_DB=keycloak
       - POSTGRES_USER=keycloak
@@ -34,6 +34,8 @@ services:
       - KC_DB_PASSWORD=password
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=super
+    volumes:
+      - ./providers/:/opt/keycloak/providers/
     networks:
       - iam-simulation-network
 
