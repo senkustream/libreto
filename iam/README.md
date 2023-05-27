@@ -64,3 +64,8 @@ Here's before and after user change their password. Please see the algorithm pas
 ![IAM password hash before](./images/iam-password-hash-before.png)
 
 ![IAM password hash after](./images/iam-password-hash-after.png)
+
+**References**
+
+- https://github.com/mathsalmi/keycloak-md5
+- https://stackoverflow.com/questions/57771277/keycloak-migrating-hashed-passwords/74495363#74495363
