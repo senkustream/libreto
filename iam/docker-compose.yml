@@ -20,10 +20,11 @@ services:
     container_name: iam-keycloak
     restart: unless-stopped
     tty: true
-    command: ["start-dev", "--http-port", "8180"]
-    image: quay.io/keycloak/keycloak:21.0.1
+    # --spi-theme params for develop custom themes in Keycloak
+    command: ["start-dev", "--http-port", "8180", "--spi-theme-static-max-age", "-1", "--spi-theme-cache-themes", "false", "--spi-theme-cache-templates", "false"]
+    image: quay.io/keycloak/keycloak:20.0.1
     ports:
-      - 8180:8180
+      - 8182:8180
     depends_on:
       - postgres
     environment:
