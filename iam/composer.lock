@@ -1,0 +1,62 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fd7f39f14163e672665b30061c17f72a",
+    "packages": [
+        {
+            "name": "ristekusdi/kisara-php",
+            "version": "v2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ristekusdi/kisara-php.git",
+                "reference": "06e35bf2899f521d7537fb22b2a9c636b22440ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ristekusdi/kisara-php/zipball/06e35bf2899f521d7537fb22b2a9c636b22440ec",
+                "reference": "06e35bf2899f521d7537fb22b2a9c636b22440ec",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "helpers.php"
+                ],
+                "psr-4": {
+                    "RistekUSDI\\Kisara\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riset dan Teknologi USDI",
+                    "email": "usdi@unud.ac.id"
+                }
+            ],
+            "description": "Keycloak Service Account library using PHP",
+            "support": {
+                "issues": "https://github.com/ristekusdi/kisara-php/issues",
+                "source": "https://github.com/ristekusdi/kisara-php/tree/v2.3"
+            },
+            "time": "2023-04-20T06:08:13+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

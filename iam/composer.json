@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ristekusdi/kisara-php": "^2.3"
+    }
+}
