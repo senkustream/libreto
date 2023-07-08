@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  osticket-db:
+    image: mariadb:latest
+    container_name: maria-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_USER=osticket
+      - MYSQL_PASSWORD=secret
+      - MYSQL_DATABASE=osticket
+      - CONTAINER_NAME=maria-db
+    networks:
+      - services
+    restart: unless-stopped
+
+  osticket-app:
+    image: mycompany/osticket:latest
+    container_name: osticket
+    environment:
+      - CONTAINER_NAME=osticket
+      - MYSQL_USER=osticket
+      - MYSQL_HOST=maria-db
+      - MYSQL_PASSWORD=secret
+      - MYSQL_DATABASE=osticket
+      - INSTALL_SECRET=verysecret
+      - INSTALL_EMAIL=info@instar.de
+      - INSTALL_URL=https://my.domain.com/
+      - INSTALL_NAME=OSTicket
+      - ADMIN_FIRSTNAME=Mike
+      - ADMIN_LASTNAME=Polinowski
+      - ADMIN_EMAIL=m.polinowski@my.smtp-server.com
+      - CRON_INTERVAL=1
+      - SMTP_HOST=my.smtp-server.com
+      - SMTP_PORT=587
+      - SMTP_FROM=info@my.smtp-server.com
+      - SMTP_TLS=1
+    ports:
+      - 7777:7777
+    depends_on:
+      - osticket-db
+    networks:
+      - services
+    links:
+      - osticket-db
+    restart: unless-stopped
+
+networks:
+  services:
+    external: false
