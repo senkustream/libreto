@@ -9,7 +9,7 @@ You must have a Docker! I you use Windows, please use WSL2.
 Run command below to build a custom OS Ticket Docker image.
 
 ```bash
-docker build - t mycompany/osticket .
+docker build -t mycompany/osticket .
 ``` 
 
 Next, run `docker compose up -d`. Then, open osTicket site in http://localhost:7777.
