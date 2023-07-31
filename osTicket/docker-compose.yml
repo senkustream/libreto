@@ -4,6 +4,8 @@ services:
   osticket-db:
     image: mariadb:latest
     container_name: maria-db
+    ports:
+      - 3307:3306
     environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_USER=osticket
