@@ -114,7 +114,14 @@ osTicket-slack-plugin/archive/${OSTICKET_SLACK_VERSION}.tar.gz; \
     tar -xzf osTicket-slack-plugin.tar.gz -C /var/www/html/include/plugins --strip-components 1 \
         osTicket-slack-plugin-${OSTICKET_SLACK_VERSION}/slack; \
     rm osTicket-slack-plugin.tar.gz
+
 COPY root /
+
+RUN chmod 755 /etc/service/cron/run
+RUN chmod 755 /etc/service/nginx/run
+RUN chmod 755 /etc/service/php-fpm/run
+RUN chmod 755 /sbin/start
+
 CMD ["start"]
 STOPSIGNAL SIGTERM
 EXPOSE 80
