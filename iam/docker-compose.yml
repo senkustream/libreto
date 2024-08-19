@@ -22,7 +22,7 @@ services:
     tty: true
     # --spi-theme params for develop custom themes in Keycloak
     command: ["start-dev", "--http-port", "8180", "--spi-theme-static-max-age", "-1", "--spi-theme-cache-themes", "false", "--spi-theme-cache-templates", "false"]
-    image: quay.io/keycloak/keycloak:20.0.1
+    image: quay.io/keycloak/keycloak:22.0.5
     ports:
       - 8182:8180
     depends_on:
