@@ -1,6 +1,6 @@
 # IAM Keycloak
 
-Docker compose for Identity and Access Management with Keycloak platform. Keycloak version I use is version 20.0.1.
+Docker compose for Identity and Access Management with Keycloak platform.
 
 ## Special Case
 
