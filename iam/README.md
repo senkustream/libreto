@@ -69,3 +69,72 @@ Here's before and after user change their password. Please see the algorithm pas
 
 - https://github.com/mathsalmi/keycloak-md5
 - https://stackoverflow.com/questions/57771277/keycloak-migrating-hashed-passwords/74495363#74495363
+
+### Intercepts Update Password
+
+Example: The organization has Radius server that contains user accounts. These user accounts doesn't integrate with Keycloak because the organization don't want to. When user change their password in their Keycloak user account, the organization wants that password also change in their Radius user account.
+
+> User change password => Update password in Keycloak user account + (Behind the scene) update password in Radius user account with the same password.
+
+To facilitate this case, we will use one of Service Provider that provided by Keycloak: RequiredActionProvider.
+
+**Prerequisites**
+
+1. You already install Java Development Kit (JDK) that matched with Keycloak. In this case I use Keycloak version 22.0.5, so the JDK version is 17 LTS.
+2. You already install Maven as a scaffolding project and build the plugin.
+
+**Brief Steps**
+
+1. Run maven command below to create a project.
+
+```bash
+mvn archetype:generate -DgroupId=stream.senku -DartifactId=senku-update-password -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
+2. Add `keycloak.version` and `java.release` as a properties to `pom.xml` file.
+
+```xml
+<properties>
+    <keycloak.version>22.0.5</keycloak.version>
+    <java.release>17</java.release>
+</properties>
+```
+
+3. Add Keycloak dependencies into `<dependencies>` inside `pom.xml` file.
+
+```xml
+<dependencies>
+    <!-- Keycloak -->
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-core</artifactId>
+      <version>${keycloak.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-server-spi</artifactId>
+      <version>${keycloak.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-server-spi-private</artifactId>
+      <version>${keycloak.version}</version>
+      <scope>provided</scope>
+    </dependency>
+</dependencies>
+```
+
+4. Ignore `test` directory because we don't need it.
+
+5. Create Provider class that implement custom password implementation.
+
+6. Create `resources/META-INF/services` directory inside `src/main` directory and create `org.keycloak.authentication.RequiredActionFactory` inside it.
+
+```bash
+cd senku-update-password/src/main
+mkdir -p resources/META-INF/services
+cd resources/META-INF/services
+touch org.keycloak.authentication.RequiredActionFactory
+```
